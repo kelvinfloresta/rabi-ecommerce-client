@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
+import { Home } from './pages/Home'
 import reportWebVitals from './reportWebVitals'
 import 'antd/dist/antd.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div />
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 )
