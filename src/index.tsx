@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import { Home } from './pages/Home'
+import { Login } from './pages/Login'
 import reportWebVitals from './reportWebVitals'
 import 'antd/dist/antd.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Login />
   </React.StrictMode>,
   document.getElementById('root')
 )
