@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import { Login } from './pages/Login'
 import reportWebVitals from './reportWebVitals'
 import 'antd/dist/antd.css'
+import { Routes } from './routes'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Login />
+    <Routes />
   </React.StrictMode>,
   document.getElementById('root')
 )
