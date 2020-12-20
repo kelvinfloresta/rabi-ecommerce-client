@@ -1,5 +1,8 @@
 import React from 'react'
+import { Page } from '../../components/Page/Page.component'
 
 export default function Home () {
-  return <div>Home</div>
+  return (
+    <Page title="Home" />
+  )
 }
