@@ -21,12 +21,6 @@ export default function Login () {
     login()
   }
 
-  if (loginLoading) {
-    return <LoginContainer>
-      <div>Loading...</div>
-    </LoginContainer>
-  }
-
   return (
     <LoginContainer>
     <LoginForm onSubmit={onSubmit}>
@@ -46,7 +40,7 @@ export default function Login () {
         autoComplete="password"
         required />
 
-      <Button type="primary" htmlType="submit">
+      <Button loading={loginLoading} type="primary" htmlType="submit">
         Login
       </Button>
 
