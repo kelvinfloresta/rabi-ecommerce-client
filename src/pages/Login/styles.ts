@@ -6,6 +6,7 @@ export const LoginContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: fadeIn .3s;
 `
 
 export const LoginForm = styled.form`
