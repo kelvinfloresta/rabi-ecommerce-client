@@ -1,8 +1,13 @@
 import React from 'react'
 import { PageHeader } from 'antd'
+import { HeaderContainer } from './Header.style'
 
-export function Header (props: {title: string}) {
-  return <PageHeader
-      title={props.title}
-    />
+interface IHeaderProps {
+  title: React.ReactNode
+}
+
+export function Header (props: IHeaderProps) {
+  return <HeaderContainer>
+    <PageHeader title={props.title} />
+  </HeaderContainer>
 }
