@@ -12,6 +12,10 @@ export const authService = {
       .pipe(map(() => null))
   },
   restoreSession (): boolean {
+    if (httpRequest.isAuthenticated()) {
+      return true
+    }
+
     const token = sessionStorage.getItem('token')
     if (token === null) {
       return false
