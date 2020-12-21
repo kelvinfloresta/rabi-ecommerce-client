@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
-    background-color: rgba(0,0,0, 0.08);
+    background-color: rgb(240, 242, 245);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -16,12 +16,7 @@ export const LoginForm = styled.form`
     background-color: white;
     padding: 1rem;
     & > input {
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
     }
-
-    & > button {
-        margin-top: 1rem;
-    }
-
 
 `
