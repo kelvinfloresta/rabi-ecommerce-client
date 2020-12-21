@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from 'react'
-import { categoryService } from '../services/Category.service'
 import { tap, catchError } from 'rxjs/operators'
 import { throwError } from 'rxjs'
+import { categoryService } from '../../services/Category.service'
 
 export function useCategoryCreate () {
   const [name, setName] = useState('')
