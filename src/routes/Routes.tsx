@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ScrollToTop from './ScrollToTop'
 import { HandleExternalRoute } from './HandleExternalRoute'
 import { PageLoader } from '../components/Page/PageLoader.component'
+import AuthRoute from './AuthRoute'
 
 /* Pages */
 const Login = lazy(() => import('../pages/Login'))
@@ -18,8 +19,8 @@ export function Routes () {
         <Suspense fallback={<PageLoader />}>
           <Switch>
             <Route exact path="/" component={Login} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/product" component={Product} />
+            <AuthRoute exact path="/home" component={Home} />
+            <AuthRoute exact path="/product" component={Product} />
           </Switch>
         </Suspense>
       </HandleExternalRoute>
