@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header } from '../Header'
 import { PageContainer } from './Page.style'
+import { PageBody } from './PageBody.component'
 
 interface IPageProps {
     title: string
@@ -11,7 +12,9 @@ export function Page ({ title, children }: IPageProps) {
   return (
     <PageContainer>
       <Header title={title}/>
-      {children}
+      <PageBody>
+        {children}
+      </PageBody>
     </PageContainer>
   )
 }
