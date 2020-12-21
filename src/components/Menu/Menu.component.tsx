@@ -34,11 +34,13 @@ export function Menu () {
           </AntMenu.Item>
           <AntMenu.Item key="product" icon={<CoffeeOutlined />}>
             <Link to="/product">
-              Produto
+              Produtos
             </Link>
           </AntMenu.Item>
-          <AntMenu.Item key="3" icon={<CoffeeOutlined />}>
-            Categoria
+          <AntMenu.Item key="category" icon={<CoffeeOutlined />}>
+          <Link to="/category">
+              Categorias
+            </Link>
           </AntMenu.Item>
         </AntMenu>
       </MenuContainer>
