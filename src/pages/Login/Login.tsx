@@ -4,7 +4,7 @@ import { LoginContainer, LoginForm } from './styles'
 import { useHistory } from 'react-router-dom'
 import { useLogin } from '../../hooks/useLogin'
 
-const { Text } = Typography
+const { Text, Title } = Typography
 
 export default function Login () {
   const { login, loginError, loginLoading, onChange, loggedIn } = useLogin()
@@ -24,6 +24,7 @@ export default function Login () {
   return (
     <LoginContainer>
     <LoginForm onSubmit={onSubmit}>
+      <Title level={3}>Login</Title>
       <Input
         onChange={onChange}
         name="email"
