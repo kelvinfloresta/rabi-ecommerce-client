@@ -1,5 +1,5 @@
 import AxiosObservable from 'axios-observable'
-import { throwError } from 'rxjs'
+import { throwError, Observable } from 'rxjs'
 import { catchError, map } from 'rxjs/operators'
 
 import IHttpRequest from './IHttpRequest.adapter'
@@ -11,6 +11,10 @@ export default class AxiosObservableAdapter implements IHttpRequest {
     this.httpRequest = AxiosObservable.create({
       baseURL
     })
+  }
+
+  isAuthenticated (): boolean {
+    return this.httpRequest.defaults.headers.Authorization?.length > 0
   }
 
   setToken = (token: string) => {
@@ -34,6 +38,13 @@ export default class AxiosObservableAdapter implements IHttpRequest {
   get<T> (url: string) {
     return this.httpRequest
       .get<T>(url)
+      .pipe(map(response => response.data))
+      .pipe(catchError(this.onError))
+  }
+
+  delete<TResponse> (url: string): Observable<TResponse> {
+    return this.httpRequest
+      .delete<TResponse>(url)
       .pipe(map(response => response.data))
       .pipe(catchError(this.onError))
   }
