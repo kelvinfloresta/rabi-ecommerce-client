@@ -1,12 +1,13 @@
 /* eslint-disable react/display-name */
 import React from 'react'
-import { Table, Popconfirm } from 'antd'
+import { Popconfirm } from 'antd'
 import { ICategory } from '../../../services/Category.service'
 import {
   DeleteTwoTone
 } from '@ant-design/icons'
 import { useConfirm } from '../../../hooks/useConfirm'
 import { useCategoryDelete } from '../../../hooks/Category/useCategoryDelete'
+import { StyledCategoryTable } from './CategoryTable.style'
 
 export interface ICategoryTableProps {
   loading: boolean
@@ -31,12 +32,12 @@ export function CategoryTable ({ categories, loading, onDelete }: ICategoryTable
     return () => setOpenedConfirm(id)
   }
 
-  return <Table
+  return <StyledCategoryTable
     bordered
     style={{ marginTop: '4rem' }}
     loading={loading}
     rowKey="name"
-    pagination={{ pageSize: 5, responsive: true, style: { position: 'absolute', top: '-4rem', right: 0 } }}
+    pagination={{ pageSize: 5, responsive: true }}
     columns={[{
       title: 'Nome',
       width: '20%',
@@ -50,7 +51,7 @@ export function CategoryTable ({ categories, loading, onDelete }: ICategoryTable
       key: 'description'
     },
     {
-      width: '30px',
+      className: 'action-button',
       render: (_, record) => (
         <Popconfirm
           placement='left'
