@@ -32,6 +32,14 @@ export function CategoryTable ({ categories, loading, onDelete }: ICategoryTable
     return () => setOpenedConfirm(id)
   }
 
+  function onCell (category: ICategory) {
+    if (openedConfirm) {
+      return { title: 'Excluir' }
+    }
+
+    return { title: 'Excluir', onClick: onOpenConfirm(category.id) }
+  }
+
   return <StyledCategoryTable
     bordered
     style={{ marginTop: '4rem' }}
@@ -52,6 +60,7 @@ export function CategoryTable ({ categories, loading, onDelete }: ICategoryTable
     },
     {
       className: 'action-button',
+      onCell: onCell,
       render: (_, record) => (
         <Popconfirm
           placement='left'
@@ -63,7 +72,7 @@ export function CategoryTable ({ categories, loading, onDelete }: ICategoryTable
           onCancel={cleanConfirm}
           okButtonProps={{ loading: categoryDeleteLoading }}
         >
-          <DeleteTwoTone title="Excluir" twoToneColor="#f00" onClick={onOpenConfirm(record.id)} />
+          <DeleteTwoTone twoToneColor="#ff7875" />
         </Popconfirm>
       )
     }
