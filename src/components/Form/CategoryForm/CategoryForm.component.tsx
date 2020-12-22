@@ -10,7 +10,7 @@ export interface ICategoryFormProps {
 }
 
 export function CategoryForm ({ categoryName, description, onChange, onSubmit, loading }: ICategoryFormProps) {
-  return <Form title="Adicionar nova categoria" layout="inline" onSubmitCapture={onSubmit}>
+  return <Form autoComplete="off" title="Adicionar nova categoria" layout="inline" onSubmitCapture={onSubmit}>
       <Form.Item>
         <Input onChange={onChange} value={categoryName} name="name" title="Nome" placeholder="Nome" required />
       </Form.Item>
