@@ -1,7 +1,8 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
+
 import { Flex } from '../components/Flex'
 import { Menu } from '../components/Menu'
-import { useLocation } from 'react-router-dom'
 
 interface IPageProps {
   children: React.ReactElement
@@ -9,15 +10,17 @@ interface IPageProps {
 
 const extenarlRoutes = ['/', '/login']
 
-export function HandleExternalRoute ({ children }: IPageProps) {
+export function HandleExternalRoute({ children }: IPageProps) {
   const { pathname } = useLocation()
 
   if (extenarlRoutes.includes(pathname)) {
     return children
   }
 
-  return <Flex>
+  return (
+    <Flex>
       <Menu />
       {children}
     </Flex>
+  )
 }

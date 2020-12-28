@@ -1,4 +1,5 @@
 import { config } from '../../config'
+
 import AxiosObservableAdapter from './AxiosObservable.adapter'
 import IHttpRequest from './IHttpRequest.adapter'
 
