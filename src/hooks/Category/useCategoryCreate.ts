@@ -1,27 +1,29 @@
-import { useState, ChangeEvent } from 'react'
-import { tap, catchError } from 'rxjs/operators'
+import { useState } from 'react'
 import { throwError } from 'rxjs'
+import { tap, catchError } from 'rxjs/operators'
+
+import { ChangeEvent } from '../../components/Form/IForm'
 import { categoryService } from '../../services/Category.service'
 
-export function useCategoryCreate () {
+export function useCategoryCreate() {
   const [name, setName] = useState('')
   const [description, setDescription] = useState<string>()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<any>(null)
 
-  function onSuccess () {
+  function onSuccess() {
     setName('')
     setDescription(undefined)
     setLoading(false)
   }
 
-  function onError (error: any) {
+  function onError(error: any) {
     setLoading(false)
     setError(error)
     return throwError(error)
   }
 
-  function saveCategory () {
+  function createCategory() {
     setLoading(true)
     setError(null)
 
@@ -31,14 +33,14 @@ export function useCategoryCreate () {
       .pipe(catchError(onError))
   }
 
-  function onChange (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  function onChange(e: ChangeEvent) {
     const { name, value } = e.target
     if (name === 'name') {
-      return setName(value)
+      return setName(value as string)
     }
 
     if (name === 'description') {
-      return setDescription(value)
+      return setDescription(value as string)
     }
   }
 
@@ -46,8 +48,8 @@ export function useCategoryCreate () {
     categoryName: name,
     description,
     onChange,
-    saveCategory,
+    createCategory,
     categoryLoading: loading,
-    categoryError: error
+    categoryError: error,
   }
 }
