@@ -1,17 +1,19 @@
 import { tap, map } from 'rxjs/operators'
+
 import httpRequest from '../adapters/HttpRequest'
 
-function storeToken (token: string) {
+function storeToken(token: string) {
   sessionStorage.setItem('token', token)
 }
 
 export const authService = {
-  login (credential: { email: string, password: string }) {
-    return httpRequest.post<string>('/auth', credential)
+  login(credential: { email: string; password: string }) {
+    return httpRequest
+      .post<string>('/auth', credential)
       .pipe(tap(httpRequest.setToken), tap(storeToken))
       .pipe(map(() => null))
   },
-  restoreSession (): boolean {
+  restoreSession(): boolean {
     if (httpRequest.isAuthenticated()) {
       return true
     }
@@ -24,6 +26,5 @@ export const authService = {
     httpRequest.setToken(token)
 
     return true
-  }
-
+  },
 }
