@@ -1,4 +1,4 @@
-function getConfig<T extends string> (configName: string): T {
+function getConfig<T extends string>(configName: string): T {
   const config = process.env[configName]
   if (config === undefined) {
     throw new Error(`Missing config ${configName}`)
@@ -8,5 +8,5 @@ function getConfig<T extends string> (configName: string): T {
 }
 
 export const config = {
-  host: getConfig('REACT_APP_HOST')
+  host: getConfig('REACT_APP_HOST'),
 }

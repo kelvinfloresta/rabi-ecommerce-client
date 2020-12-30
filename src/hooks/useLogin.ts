@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+
 import { authService } from '../services/Auth.service'
 
-export function useLogin () {
+export function useLogin() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -13,26 +14,24 @@ export function useLogin () {
     setLoggedIn(isLoggedIn)
   }, [])
 
-  function onSuccess () {
+  function onSuccess() {
     setLoading(false)
     setLoggedIn(true)
   }
 
-  function onError (error: any) {
+  function onError(error: any) {
     setLoading(false)
     setError(error)
   }
 
-  function login () {
+  function login() {
     setLoading(true)
     setError(null)
 
-    authService
-      .login({ password, email })
-      .subscribe(onSuccess, onError)
+    authService.login({ password, email }).subscribe(onSuccess, onError)
   }
 
-  function onChange (e: React.ChangeEvent<HTMLInputElement>) {
+  function onChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target
     if (name === 'email') {
       return setEmail(value)
@@ -48,6 +47,6 @@ export function useLogin () {
     onChange,
     loggedIn,
     loginError: error,
-    loginLoading: loading
+    loginLoading: loading,
   }
 }
