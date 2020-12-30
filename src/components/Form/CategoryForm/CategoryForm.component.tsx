@@ -19,7 +19,7 @@ export function CategoryForm({
     <Form
       autoComplete="off"
       title="Adicionar nova categoria"
-      layout="inline"
+      layout="vertical"
       onSubmitCapture={onSubmit}>
       <Form.Item label="Nome" required>
         <Input
@@ -34,7 +34,7 @@ export function CategoryForm({
       <Form.Item label="Descrição">
         <Input.TextArea
           cols={50}
-          rows={1}
+          rows={3}
           onChange={onChange}
           value={form.description}
           name="description"
