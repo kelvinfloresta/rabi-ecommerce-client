@@ -8,7 +8,7 @@ export type IStyledTable<RecordType extends object> = (
 ) => React.ReactElement
 
 export const StyledTable = styled(Table)`
-  .ant-table .action-button {
+  .ant-table .action-button:not(th) {
     cursor: pointer;
     width: 48px;
     font-size: 1rem;
