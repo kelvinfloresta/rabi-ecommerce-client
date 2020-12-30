@@ -8,17 +8,9 @@ export type IStyledTable<RecordType extends object> = (
 ) => React.ReactElement
 
 export const StyledTable = styled(Table)`
-  margin-top: 4rem;
-
   .ant-table .action-button {
     cursor: pointer;
     width: 48px;
     font-size: 1rem;
-  }
-
-  .ant-pagination {
-    position: absolute;
-    top: -4rem;
-    right: 0;
   }
 `
