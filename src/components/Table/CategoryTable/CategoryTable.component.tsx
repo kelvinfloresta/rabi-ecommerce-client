@@ -1,82 +1,50 @@
-/* eslint-disable react/display-name */
+import { ColumnsType } from 'antd/lib/table'
 import React from 'react'
-import { Popconfirm } from 'antd'
-import { ICategory } from '../../../services/Category.service'
-import {
-  DeleteTwoTone
-} from '@ant-design/icons'
-import { useConfirm } from '../../../hooks/useConfirm'
-import { useCategoryDelete } from '../../../hooks/Category/useCategoryDelete'
-import { StyledCategoryTable } from './CategoryTable.style'
+import { Observable } from 'rxjs'
 
-export interface ICategoryTableProps {
-  loading: boolean
+import { TableData } from '../../../frameworks/components/TableData.component'
+import { useDeleteColumn } from '../../../frameworks/hooks/useDeleteColumn'
+import { ICategory } from '../../../services/Category.service'
+
+interface ICategoryTableProps {
   categories: ICategory[]
-  onDelete: () => void
+  onDelete(id: string): Observable<never>
+  deleteLoading: boolean
+  loading: boolean
+  error: any
 }
 
-export function CategoryTable ({ categories, loading, onDelete }: ICategoryTableProps) {
-  const { deleteCategory, categoryDeleteLoading } = useCategoryDelete()
+const defaultColumns: ColumnsType<ICategory> = [
+  {
+    title: 'Nome',
+    width: '20%',
+    dataIndex: 'name',
+    sorter: (a, b) => a.name.localeCompare(b.name),
+  },
+  {
+    title: 'Descrição',
+    dataIndex: 'description',
+  },
+]
 
-  const { cleanConfirm, openedConfirm, setOpenedConfirm } = useConfirm()
+export function CategoryTable({
+  categories,
+  loading,
+  error,
+  onDelete,
+  deleteLoading,
+}: ICategoryTableProps) {
+  const deleteColumn = useDeleteColumn<ICategory>({
+    deleteLoading,
+    onDelete,
+  })
 
-  function onConfirmDelete (id: string) {
-    return () => deleteCategory(id)
-      .subscribe(() => {
-        cleanConfirm()
-        onDelete()
-      })
-  }
-
-  function onOpenConfirm (id: string) {
-    return () => setOpenedConfirm(id)
-  }
-
-  function onCell (category: ICategory) {
-    if (openedConfirm) {
-      return { title: 'Excluir' }
-    }
-
-    return { title: 'Excluir', onClick: onOpenConfirm(category.id) }
-  }
-
-  return <StyledCategoryTable
-    bordered
-    style={{ marginTop: '4rem' }}
-    loading={loading}
-    rowKey="name"
-    pagination={{ pageSize: 5, responsive: true }}
-    columns={[{
-      title: 'Nome',
-      width: '20%',
-      dataIndex: 'name',
-      key: 'name',
-      sorter: (a, b) => a.name.localeCompare(b.name)
-    },
-    {
-      title: 'Descrição',
-      dataIndex: 'description',
-      key: 'description'
-    },
-    {
-      className: 'action-button',
-      onCell: onCell,
-      render: (_, record) => (
-        <Popconfirm
-          placement='left'
-          title="Deseja realmente excluir?"
-          okText="Sim"
-          cancelText="Não"
-          visible={openedConfirm === record.id}
-          onConfirm={onConfirmDelete(record.id)}
-          onCancel={cleanConfirm}
-          okButtonProps={{ loading: categoryDeleteLoading }}
-        >
-          <DeleteTwoTone twoToneColor="#ff7875" />
-        </Popconfirm>
-      )
-    }
-    ]}
-    dataSource={categories}
-  />
+  return (
+    <TableData
+      columns={[...defaultColumns, deleteColumn]}
+      loading={loading}
+      dataSource={categories}
+      error={error}
+    />
+  )
 }
