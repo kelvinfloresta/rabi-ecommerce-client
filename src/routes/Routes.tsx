@@ -10,7 +10,7 @@ import ScrollToTop from './ScrollToTop'
 /* Pages */
 const Login = lazy(() => import('../pages/Login'))
 const Home = lazy(() => import('../pages/Home'))
-const Product = lazy(() => import('../pages/Product/Product.page'))
+const Product = lazy(() => import('../pages/Product'))
 
 export function Routes() {
   return (
