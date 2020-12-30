@@ -1,7 +1,7 @@
-export interface IEmpty {
+export type IEmpty<T> = T & {
   readonly isEmpty: true
 }
 
-export function isEmpty<T>(value: IEmpty | T): value is IEmpty {
-  return (value as IEmpty).isEmpty
+export function isEmpty<T>(value: IEmpty<T> | T): value is IEmpty<T> {
+  return (value as IEmpty<T>).isEmpty
 }
