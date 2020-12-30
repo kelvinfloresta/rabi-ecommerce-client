@@ -11,6 +11,7 @@ import ScrollToTop from './ScrollToTop'
 const Login = lazy(() => import('../pages/Login'))
 const Home = lazy(() => import('../pages/Home'))
 const Product = lazy(() => import('../pages/Product'))
+const Order = lazy(() => import('../pages/Order'))
 
 export function Routes() {
   return (
@@ -22,6 +23,7 @@ export function Routes() {
             <Route exact path="/" component={Login} />
             <AuthRoute exact path="/home" component={Home} />
             <AuthRoute exact path="/product" component={Product} />
+            <AuthRoute exact path="/order" component={Order} />
           </Switch>
         </Suspense>
       </HandleExternalRoute>

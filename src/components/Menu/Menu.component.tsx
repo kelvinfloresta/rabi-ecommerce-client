@@ -1,4 +1,8 @@
-import { PieChartOutlined, CoffeeOutlined } from '@ant-design/icons'
+import {
+  PieChartOutlined,
+  CoffeeOutlined,
+  DollarCircleOutlined,
+} from '@ant-design/icons'
 import { Menu as AntMenu } from 'antd'
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -25,6 +29,9 @@ export function Menu() {
         inlineCollapsed={collapsed}>
         <AntMenu.Item key="home" icon={<PieChartOutlined />}>
           <Link to="/home">Home</Link>
+        </AntMenu.Item>
+        <AntMenu.Item key="order" icon={<DollarCircleOutlined />}>
+          <Link to="/order">Pedidos</Link>
         </AntMenu.Item>
         <AntMenu.Item key="product" icon={<CoffeeOutlined />}>
           <Link to="/product">Produtos</Link>
