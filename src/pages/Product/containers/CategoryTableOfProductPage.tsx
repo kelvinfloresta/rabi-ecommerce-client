@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { tap } from 'rxjs/operators'
-import { CategoryTable } from 'src/components/Table/CategoryTable/CategoryTable.component'
+import { CategoryTable } from 'src/components/Table/CategoryTable.component'
 import { TableToolbar } from 'src/components/Table/TableToolbar.component'
 import { ToolbarButton } from 'src/components/Toolbar'
 import { CategoryPaneContext } from 'src/contexts/ProductPage/CategoryPane.context'

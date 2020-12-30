@@ -2,9 +2,9 @@ import { ColumnsType } from 'antd/lib/table'
 import React from 'react'
 import { Observable } from 'rxjs'
 
-import { TableData } from '../../../frameworks/components/TableData.component'
-import { useDeleteColumn } from '../../../frameworks/hooks/useDeleteColumn'
-import { ICategory } from '../../../services/Category.service'
+import { TableData } from '../../frameworks/components/TableData.component'
+import { useDeleteColumn } from '../../frameworks/hooks/useDeleteColumn'
+import { ICategory } from '../../services/Category.service'
 
 interface ICategoryTableProps {
   categories: ICategory[]

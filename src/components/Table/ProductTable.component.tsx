@@ -1,13 +1,12 @@
 import { ColumnsType } from 'antd/lib/table'
 import React from 'react'
 import { Observable } from 'rxjs'
-
-import { TableData } from '../../../frameworks/components/TableData.component'
-import { useActiveColumn } from '../../../frameworks/hooks/useActiveColumn'
-import { useDeleteColumn } from '../../../frameworks/hooks/useDeleteColumn'
-import { IMultipleLoading } from '../../../hooks/CRUD/ICRUD.hook'
-import { IProduct } from '../../../services/Product.service'
-import { formatCurrency } from '../../../utils/Format.util'
+import { TableData } from 'src/frameworks/components/TableData.component'
+import { useActiveColumn } from 'src/frameworks/hooks/useActiveColumn'
+import { useDeleteColumn } from 'src/frameworks/hooks/useDeleteColumn'
+import { IMultipleLoading } from 'src/hooks/CRUD/ICRUD.hook'
+import { IProduct } from 'src/services/Product.service'
+import { formatCurrency } from 'src/utils/Format.util'
 
 interface IProductTableProps {
   products: IProduct[]

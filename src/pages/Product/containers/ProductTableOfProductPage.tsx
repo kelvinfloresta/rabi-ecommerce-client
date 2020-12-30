@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { tap } from 'rxjs/operators'
 
 import { Message } from '../../../components/Message/Message'
-import { ProductTable } from '../../../components/Table/ProductTable/ProductTable.component'
+import { ProductTable } from '../../../components/Table/ProductTable.component'
 import { TableToolbar } from '../../../components/Table/TableToolbar.component'
 import { ToolbarButton } from '../../../components/Toolbar'
 import { ProductPaneContext } from '../../../contexts/ProductPage/ProductPane.context'
