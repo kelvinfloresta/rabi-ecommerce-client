@@ -14,3 +14,6 @@ export type IPatchObservable<TFilter, TData> = (
   filter: TFilter,
   data: TData,
 ) => Observable<never>
+
+export type IMultipleLoading = { [id: string]: boolean | undefined }
+export type IMultipleError = { [id: string]: any }
