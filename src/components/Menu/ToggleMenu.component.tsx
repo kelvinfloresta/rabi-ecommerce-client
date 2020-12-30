@@ -1,10 +1,6 @@
-import React from 'react'
-
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined
-} from '@ant-design/icons'
+import React from 'react'
 import styled from 'styled-components'
 
 interface IToggleMenuProps {
@@ -18,18 +14,20 @@ const StyledToggleMenu = styled(Button)`
   color: white;
   border-color: transparent;
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     background-color: transparent;
     color: white;
     border-color: transparent;
   }
 `
 
-export function ToggleMenu ({ collapsed, toggleCollapsed }: IToggleMenuProps) {
+export function ToggleMenu({ collapsed, toggleCollapsed }: IToggleMenuProps) {
   return (
-      <StyledToggleMenu size="large" onClick={toggleCollapsed}>
-        {!collapsed && <MenuUnfoldOutlined />}
-        {collapsed && <MenuFoldOutlined />}
-      </StyledToggleMenu>
+    <StyledToggleMenu size="large" onClick={toggleCollapsed}>
+      {!collapsed && <MenuUnfoldOutlined />}
+      {collapsed && <MenuFoldOutlined />}
+    </StyledToggleMenu>
   )
 }
