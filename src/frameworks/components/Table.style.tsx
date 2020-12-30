@@ -8,6 +8,9 @@ export type IStyledTable<RecordType extends object> = (
 ) => React.ReactElement
 
 export const StyledTable = styled(Table)`
+  .ant-table {
+    overflow: auto;
+  }
   .ant-table .action-button:not(th) {
     cursor: pointer;
     width: 48px;
