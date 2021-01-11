@@ -46,6 +46,7 @@ const defaultColumns: ColumnsType<IProduct> = [
   {
     title: 'Descrição',
     dataIndex: 'description',
+    responsive: ['lg'],
   },
 ]
 
