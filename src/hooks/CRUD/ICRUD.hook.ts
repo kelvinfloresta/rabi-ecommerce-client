@@ -10,6 +10,10 @@ export type IListObservable<TList, TFilter> = (
   param: TFilter,
 ) => Observable<TList[]>
 
+export type IGetObservable<TElement, TFilter> = (
+  param: TFilter,
+) => Observable<TElement>
+
 export type IPatchObservable<TFilter, TData> = (
   filter: TFilter,
   data: TData,
