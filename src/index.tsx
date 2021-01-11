@@ -2,13 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './index.css'
+import { OrderPageProvider } from './contexts/OrderPage.context'
 import reportWebVitals from './reportWebVitals'
 import 'antd/dist/antd.css'
 import { Routes } from './routes'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routes />
+    <OrderPageProvider>
+      <Routes />
+    </OrderPageProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 )
