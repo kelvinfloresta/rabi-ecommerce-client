@@ -15,6 +15,11 @@ export const useDeleteProduct = makeUseDelete(productService.delete)
 
 export const useProductList = makeUseList(productService.list, undefined)
 
+export const useGroupedProductsByCategory = makeUseList(
+  productService.listGroupedByCategory,
+  undefined,
+)
+
 const EMPTY_PRODUCT: IEmpty<ICreateProductInput> = {
   name: '',
   price: 1,
