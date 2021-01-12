@@ -26,7 +26,7 @@ export function OrderItem({
         <Flex
           alignItems="center"
           justifyContent="space-between"
-          maxWidth="100px"
+          width="100px"
           margin="1rem 0">
           <MinusCircleOutlined
             onClick={() => onDecrement(id)}
