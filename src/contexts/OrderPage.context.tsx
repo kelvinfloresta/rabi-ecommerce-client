@@ -30,11 +30,6 @@ export function OrderPageProvider({ children }: { children: ReactNode }) {
     return () => sub.unsubscribe()
   }, [drawer.isOpen])
 
-  useEffect(() => {
-    const subscription = listOrder.list().subscribe()
-    return () => subscription.unsubscribe()
-  }, [])
-
   return (
     <OrderPageContext.Provider
       value={{
