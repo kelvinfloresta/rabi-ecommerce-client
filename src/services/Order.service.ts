@@ -1,4 +1,4 @@
-import { of, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 import httpRequest from 'src/adapters/HttpRequest'
 
 export interface IOrderItem {
@@ -27,20 +27,6 @@ export const orderService = {
     return httpRequest.post<string>('/order', newOrder)
   },
   list(): Observable<IOrder[]> {
-    const mock: IOrder[] = [
-      {
-        id: '1',
-        clientName: 'Client 1',
-        total: 100,
-        items: [{ productId: '1', productName: 'banana', quantity: 1 }],
-      },
-      {
-        id: '2',
-        clientName: 'Client 2',
-        total: 100,
-        items: [{ productId: '1', productName: 'banana', quantity: 1 }],
-      },
-    ]
-    return of(mock)
+    return httpRequest.get<IOrder[]>('/order')
   },
 }
