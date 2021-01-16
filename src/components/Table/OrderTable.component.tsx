@@ -1,11 +1,11 @@
-import { Button } from 'antd'
+import { DollarTwoTone } from '@ant-design/icons'
+import { Button, Typography } from 'antd'
 import { ColumnsType } from 'antd/lib/table'
 import React from 'react'
 import { IOrder } from 'src/services/Order.service'
 import { formatCurrency } from 'src/utils/Format.util'
 
 import { TableData } from '../../frameworks/components/TableData.component'
-import { ToolbarButton } from '../Toolbar'
 
 interface IOrderTableProps {
   orders: IOrder[]
@@ -16,30 +16,16 @@ interface IOrderTableProps {
 const defaultColumns: ColumnsType<IOrder> = [
   {
     title: 'Cliente',
-    dataIndex: 'clientName',
-  },
-  {
-    title: 'Total',
-    dataIndex: 'total',
-    render: formatCurrency,
-  },
-  {
-    className: 'action-button',
-    render() {
-      return <ToolbarButton onClick={console.log}>Adicionar</ToolbarButton>
-    },
-  },
-  {
-    className: 'action-button',
-    render() {
-      return <Button danger>Cancelar</Button>
+    dataIndex: 'clientId',
+    render(_, record) {
+      return record.clientName || 'Cliente anônimo'
     },
   },
   {
     className: 'action-button',
     render() {
       return (
-        <Button ghost type="primary">
+        <Button icon={<DollarTwoTone />} type="default">
           Pagar
         </Button>
       )
