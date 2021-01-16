@@ -19,7 +19,11 @@ export default function Order() {
       userId: null,
       items: parseCartItemsToOrderItems(cart.items),
     }).subscribe(
-      () => Message.success.create('pedido'),
+      () => {
+        Message.success.create('pedido')
+        drawer.close()
+        listOrder.list().subscribe()
+      },
       () => Message.error.create('pedido'),
     )
   }
