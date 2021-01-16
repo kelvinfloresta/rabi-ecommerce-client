@@ -14,7 +14,10 @@ export function SummaryOrderItem({ items, total }: SummaryOrderItemProps) {
   return (
     <Fragment>
       {items.map(item => (
-        <Flex key={item.productId} justifyContent="space-between">
+        <Flex
+          margin="0 0 1rem 0"
+          key={item.productId}
+          justifyContent="space-between">
           <div>
             <Tag>{item.quantity}</Tag>
             {item.productName}
@@ -22,7 +25,7 @@ export function SummaryOrderItem({ items, total }: SummaryOrderItemProps) {
           {formatCurrency(item.total)}
         </Flex>
       ))}
-      <Flex margin="2rem 0 0 0" justifyContent="space-between">
+      <Flex margin="1.5rem 0 0 0" justifyContent="space-between">
         <Typography.Text strong>Total:</Typography.Text>
         <Typography.Text strong>{formatCurrency(total)}</Typography.Text>
       </Flex>
