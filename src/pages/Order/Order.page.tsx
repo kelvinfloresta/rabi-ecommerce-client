@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { NewOrderDrawer } from 'src/components/Drawer/NewOrderDrawer'
 import { Message } from 'src/components/Message/Message'
 import { Page } from 'src/components/Page'
@@ -23,6 +23,11 @@ export default function Order() {
       () => Message.error.create('pedido'),
     )
   }
+
+  useEffect(() => {
+    const subscription = listOrder.list().subscribe()
+    return () => subscription.unsubscribe()
+  }, [])
 
   return (
     <Page
