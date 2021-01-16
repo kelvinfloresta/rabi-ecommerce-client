@@ -5,6 +5,7 @@ export interface IOrderItem {
   readonly productId: string
   readonly productName: string
   readonly quantity: number
+  readonly total: number
 }
 
 export interface IOrder {
